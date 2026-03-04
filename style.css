@@ -1,49 +1,95 @@
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(
-    135deg,
-    #1e2430,
-    #1a1f2a,
-    #141821
-);
+        135deg,
+        #1e2430,
+        #1a1f2a,
+        #141821
+    );
     color: white;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+
+    min-height: 100vh;
+    margin: 0;
 }
 
+/* Main Card */
 .container {
-    height: 500px;
-    border: 2px solid red;
-    border-radius: 10px;
-    width: 400px;
+    width: 90%;
+    max-width: 420px;
+    min-height: 520px;
+
+    background: #1f2633;
+    border-radius: 15px;
+    padding: 25px;
+
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    gap: 15px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
-.options{
-    display: flex;
-    flex-direction: columm;
-    justify-content: center;
-}
-#password{
-    padding: 10px 40px;
-}
-.btn-1{
-    padding: 10px 40px;
-    background-color: green;
-    color: white;
+
+/* Password Input */
+#password {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
     border: none;
-    border-radius: 5px;
     outline: none;
 }
-.btn-2{
-    padding: 9px 51px;
-    background-color: #00adb5;
-    color: white:;;
+
+/* Options Section */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Sub Options List */
+.sub-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Labels */
+label {
+    font-size: 14px;
+}
+
+/* Buttons */
+.btn-1,
+.btn-2 {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
     border: none;
-    border-radius: 5px;
-    outline: none; 
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Generate Button */
+.btn-1 {
+    background-color: green;
+    color: white;
+}
+
+.btn-1:hover {
+    background-color: darkgreen;
+}
+
+/* Copy Button */
+.btn-2 {
+    background-color: #00adb5;
+    color: white;
+}
+
+.btn-2:hover {
+    background-color: #008891;
 }
