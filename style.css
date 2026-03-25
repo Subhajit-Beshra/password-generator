@@ -38,7 +38,8 @@ h1{
     gap: 30px;
     padding: 20px;
     width: 400px;
-    font-family: Bahnschrift Light;
+    font-family: poppins, sans-serif;
+    font-weight: 300;
     background-color: #25343F;
     color: white;
     border-radius: 12px;
@@ -106,4 +107,14 @@ button{
     color: white;
     cursor: pointer;
     border-radius: 3px;
+    transition: all 0.3s ease;
+}
+button:hover{
+    background-color: #6FAF4F;
+    transform: translateY(-2px);
+}
+@media (max-width: 450px){
+    .container{
+        width: 90%;
+    }
 }
