@@ -1,5 +1,6 @@
-function generatePassword() {
-    const length = document.getElementById("length").value;
+function generate(){
+    
+    const length = parseInt(document.getElementById("length").value);
     const hasUpper = document.getElementById("uppercase").checked;
     const hasLower = document.getElementById("lowercase").checked;
     const hasNumber = document.getElementById("numbers").checked;
@@ -8,7 +9,7 @@ function generatePassword() {
     const upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const lowerChars = "abcdefghijklmnopqrstuvwxyz";
     const numberChars = "0123456789";
-    const symbolChars = "@#₹&!?*/£€$¢^%";
+    const symbolChars = "!@#$%^&*~/?<>[]";
 
     let allChars = "";
 
@@ -23,6 +24,7 @@ function generatePassword() {
     }
 
     let password = "";
+
     for (let i = 0; i < length; i++) {
         password += allChars.charAt(Math.floor(Math.random() * allChars.length));
     }
@@ -30,9 +32,20 @@ function generatePassword() {
     document.getElementById("password").value = password;
 }
 
-function copyPassword() {
+function copy() {
     const passwordField = document.getElementById("password");
-    passwordField.select();
-    document.execCommand("copy");
-    alert("Password copied!");
+    
+    if (!passwordField.value) {
+        alert("Please generate a password first!");
+        return;
+    }
+    
+    navigator.clipboard.writeText(passwordField.value)
+        .then(() => {
+            alert("Password copied to clipboard!");
+        })
+        .catch((err) => {
+            alert("Failed to copy password. Please try again.");
+            console.error("Clipboard error:", err);
+        });
 }
