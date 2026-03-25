@@ -1,122 +1,109 @@
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body Styling */
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(
-        135deg,
-        #1e2430,
-        #1a1f2a,
-        #141821
-    );
-    color: white;
-
-    min-height: 100vh;
+body{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    font-size: 18px;
-}
-
-/* Main Container */
-.container {
-    width: 95%;
-    max-width: 600px;
-    min-height: 600px;
-
-    background: #1f2633;
-    border-radius: 20px;
-    padding: 40px;
-
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
-}
-
-/* Title */
-h1 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-top: 50px;
+    padding: 0;
+    height: 100vh;
+    background-color: #222222;
 }
-
-/* Password Input */
-#password {
-    width: 100%;
-    padding: 15px;
-    font-size: 18px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
+h1{
+    font-family: Bahnschrift;
+    font-size: 2rem;
+    background: linear-gradient(to right,#4C8CE4,white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+     background-size: 600% 600%;
+    animation: move 5s linear infinite;
 }
-
-/* Number Input */
-#length {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 8px;
-    border: none;
-    outline: none;
+@keyframes move{
+    0%{
+        background-position: 0%;
+    }
+    50%{
+        background-position: 100%;
+    }
+    100%{
+        background-position: 0%;
+    }
 }
-
-/* Options Section */
-.options {
+.container {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-}
-
-/* Sub Container (Checkbox list) */
-.sub-container {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-/* Labels */
-label {
-    display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 10px;
-    font-size: 16px;
+    gap: 30px;
+    padding: 20px;
+    width: 400px;
+    font-family: Bahnschrift Light;
+    background-color: #25343F;
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
-
-/* Buttons */
-.btn-1,
-.btn-2 {
+.container::after, .container::before{
+    content: ' ';
+    position: absolute;
+    height: 100%;
     width: 100%;
-    padding: 15px;
-    font-size: 18px;
-    border: none;
+    background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff4545);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
     border-radius: 10px;
+    animation: 3s spin linear infinite;
+}
+@keyframes spin{
+    from{
+        --angle : 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+}
+@property  --angle{
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+.container ::before{
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+.details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+}
+.options{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+}
+.password-display input[type="text"]{
+    width: 100%;
+    padding: 6px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+}
+button{
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    background-color: #EB4C4C;
+    color: white;
     cursor: pointer;
-    transition: 0.3s ease;
-}
-
-/* Generate Button */
-.btn-1 {
-    background: green;
-    color: white;
-}
-
-.btn-1:hover {
-    background: darkgreen;
-}
-
-/* Copy Button */
-.btn-2 {
-    background: #00adb5;
-    color: white;
-}
-
-.btn-2:hover {
-    background: #008891;
+    border-radius: 3px;
 }
